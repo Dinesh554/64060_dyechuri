@@ -1,0 +1,51 @@
+---
+title: "Assignment_2"
+output: html_document
+date: "2023-09-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+#The below dataset I've used is a  built-in dataset
+```{r}
+data("mtcars")
+summary(mtcars)
+```
+#To get descriptive statistics for the variables in a dataset
+#To transform variable mpg in the dataset, we are multiplying it by 1.4
+```{r}
+mpg<-mtcars$mpg*1.4
+summary(mtcars)
+```
+#Plotting the variables mpg and hp in the dataset
+```{r}
+plot(mtcars$mpg,mtcars$hp)
+```
+#To scatterplot, we use ggplot package.
+```{r}
+library(ggplot2)
+
+ggplot(mtcars) +
+ aes(x = mpg, y = hp) +
+ geom_area() +
+ theme_minimal()
+
+```
+```{r}
+
+library(ggplot2)
+
+ggplot(mtcars) +
+ aes(x = gear, y = wt) +
+ geom_line(colour = "#112446") +
+ theme_minimal()
+
+```
+
